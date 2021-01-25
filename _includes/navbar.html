@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light dp-navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand dp-navbar-brand" 
+                {% if site.environment == "qa" %}
+                    {% if site.internal %}
+                        href="https://qa-developer-portal-home.sageaccountantscloud.com/internal"
+                    {% else %}
+                        href="https://qa-developer-portal-home.sageaccountantscloud.com"
+                    {% endif %}
+                {% else %}
+                    {% if site.internal %}
+                        href="https://developer.sage.com/internal"
+                    {% else %}
+                        href="https://developer.sage.com"
+                    {% endif %}
+                {% endif %}
+            >
+                <img src="{{ site.logo}}" alt="Sage">
+                <span>{% if site.internal %}Internal{% endif %} Developer</span>
+            </a>
+        </div>
+
+        <div class="navbar-right navbar-collapse collapse" id="bs-navbar-collapse-1" aria-expanded="true" style="">
+            {% include navbar-right.html %}
+        </div>
+    </div>
+</nav>

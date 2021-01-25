@@ -1,0 +1,350 @@
+---
+# Sage Developer CSS
+---
+
+@import "variables";
+@import "bootstrap";
+@import "developer";
+
+// EXISTING SAGE DEVELOPER STYLES - CAN BE REMOVED ONCE TESTED 
+
+// .sage-docs-wrapper {
+//   table {
+//     @extend .table, .table-striped, .table-bordered;
+//   }
+// }
+
+// // Thanks to github.com/lord/slate for the split idea
+// @media (min-width: 960px) {
+//   .api-reference-wrapper {
+//     .content {
+//       position: relative;
+//       z-index: 30;
+
+//       &>h1, &>h2, &>hr {
+//         clear:both;
+//       }
+
+//       .page-header, h1, h2, h3, h4, h5, h6, >p, ul, ol, aside, dl, hr {
+//         margin-right: 50%;
+//         padding-right: 15px;
+//       }
+//       table {
+//         width: calc(50% - 15px) !important;
+//       }
+//       .highlight, blockquote {
+//         width: calc(50% - 15px);
+//         float: right;
+//         clear: right;
+//       }
+//       blockquote {
+//         margin-bottom: 15px;
+//         margin-top: 15px;
+//       }
+//     }
+
+//     .code-box {
+//       z-index: 0;
+//       width: 50%;
+//       background-color: #fafafa;
+//       position: absolute;
+//       right: 0;
+//       top: 0;
+//       bottom: 0;
+//     }
+//   }
+// }
+
+// // Hide the code box if the screen is under a certain size
+// @media (max-width: 960px) {
+//   .api-reference-wrapper {
+//     .code-box {
+//       display: none;
+//     }
+//   }
+// }
+
+// html {
+//   position: relative;
+//   min-height: 100%;
+// }
+
+// body {
+//   /* Margin bottom by footer height */
+//   margin-bottom: 90px;
+// }
+
+// .footer {
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+//   /* Set the fixed height of the footer here */
+//   height: 90px;
+//   background-color: #fafafa;
+//   color: #767676;
+//   padding-right: 15px;
+//   padding-left: 15px;
+// }
+
+// .container-fluid .text-left {
+//   margin: 20px 0;
+// }
+
+// .footer > .container-fluid {
+//   padding-right: 15px;
+//   padding-left: 15px;
+// }
+
+// /* New styles from Stewart Collins' main landing page*/
+// .landing-page .row {
+//   margin: 10px 0 30px 0;
+// }
+// .landing-page .thumbnail {
+//   padding: 10px;
+// }
+
+// .landing-page .thumbnail>img {
+//   margin: 15px 0 0 10px;
+// }
+
+// .landing-page .caption .btn {
+//   margin: 0 10px 15px 0;
+// }
+
+// .landing-page .caption .secondary {
+//   color: #767A83;
+//   font-size: 13px;
+//   min-height: auto;
+//   margin: 0;
+// }
+
+// @media (min-width: 768px) {
+//   .landing-page .thumbnail {
+//     min-height: 310px;
+//   }
+
+//   .landing-page .caption p {
+//     min-height: 75px;
+//   }
+// }
+
+// @media (min-width: 1025px) {
+//   .landing-page .thumbnail {
+//     min-height: 360px;
+//   }
+// }
+
+// @media (min-width: 1200px) {
+//   .landing-page .thumbnail {
+//     min-height: 255px;
+//   }
+// }
+
+// // KH 2018-01-31: fix for DVP-61. Change redoc pre color to light grey, leaving non-redoc applications unchanged.
+// pre .redoc-json {
+// 	color: #ddd;
+
+// }
+
+// // KH 2018-04-18: fix for DVP-80. CHnage redoc pre color that was nested within the .code-sample class, which wasn't being applied by the DVP-61 rule.
+// .code-sample pre {
+// 	color: #ddd;
+// }
+
+
+// a.btn-default { /* Primary call to action button style for DVP */
+//   border: 1px solid #CE0058;
+//   box-shadow: none;
+//   color: white;
+//   background-color: #CE0058;
+//   border-radius: 4px;
+// }
+
+
+// a.btn-primary { /* Secondary call to action button style for DVP */
+//   box-shadow: none;
+//   background-color: white;
+//   color: #2c2a29;
+//   border: 1px solid #2c2a29;
+//   border-radius: 4px;
+// } 
+
+// a:hover.btn-default,a:active.btn-default { /* Hover state for primary CTA button changes Sage Fuschia to darker shade */ /* KH 20180209 - added state for visited links to equal hover state */
+// /* MG 20180904 - added Active state and removed visited   */
+//   border: 1px solid #b2004c;
+//   background-color: #b2004c;
+//   color: white;
+//   text-decoration: none;
+// }
+// .btn-default:focus{
+// background-color:#CE0058;
+// color:white;
+// }
+
+// a:hover.btn-primary { /* Hover state for secondary CTA button adds an inner shadow */
+//   box-shadow: inset 0 0 2px 1px hsla(77,3%,52%,.5);
+//   background-color: white;
+//   color: #2c2a29;
+//   border: 1px solid #2c2a29;
+//   text-decoration: none;
+// }
+
+// img.subsitelogo, img.betasticker, img.subsiteproductlogo {
+//   display: inline;
+// }
+
+// .betasticker {
+//   vertical-align: text-top;
+//   margin-top: 4px;
+//   padding-left: 5px;
+// }
+
+// .subsiteproductlogo {
+//   height: 27px;
+//   border-left: 1px solid #eee;
+//   padding-left: 20px;
+//   margin-left: 20px;
+// }
+
+// .banner, .gettingstarted {
+//   background-color: #003349 !important;
+// }
+
+// a.sagebutton, a.sagebuttonlink, p.sagebutton a { /* override for subsite banner button styles. KH 20180209 - need 3rd additional rule to capture HTML scenario for Accounting, Financials */
+//   border-radius: 4px;
+//   background-color: #ce0058;
+//   border: 1px solid #ce0058;
+//   padding: 6px 16px;
+//   font-weight: normal;
+//   font-size: 14px;
+//   text-transform: uppercase;
+//   color: white;
+//   text-decoration: none;
+// }
+// /* MG Start - Updated hover style for hover color in accounting and financials */
+//  p.sagebutton a:hover,p.sagebutton a:active{
+// background-color: #b2004c !important;
+// border: 1px solid #b2004c !important;
+// }
+// /* MG End - Updated hover style for hover color in accounting and financials */
+
+// a.sagebutton.sagewhite { /* KH 20180209 - revised subsite banner button styles */
+//   box-shadow: none;
+//   background-color: transparent;
+//   color: white;
+//   border: 1px solid white;
+//   border-radius: 4px;
+//   padding: 6px 16px;
+//   text-decoration: none;
+// }
+
+// /* HYPERLINK STYLES CANNOT BE UNIVERSALLY APPLIED. THESE ARE TARGETED FOR NOW */
+
+// .breadcrumbs a, .footer a {
+//   color: #2c2a29;
+//   text-decoration: underline;
+// }
+
+// .breadcrumbs a:hover, .footer a:hover { /* KH 20180209: hover should be Azul, not Fuschia */
+//   color: #004b87;
+//   text-decoration: underline;
+// }
+
+// .productstatus { /* KH 20180209: adding status line for DVP homepage */
+//   text-transform: uppercase;
+//   color: #2c2a29;
+//   border-bottom: 1px solid rgb(221, 221, 221); /* KH 20180209 - match line to colour of default bounding box */
+//   padding-bottom: 5px;
+//   margin: 0 10px;
+//   font-size: 12px;
+// }
+
+// .banner.gettingstarted .productstatus { /* KH 20180209 - style adjustments for placement of product status into subsite banner */
+//   border-bottom: none;
+//   padding-bottom: none;
+//   margin-left: 350px;
+//   color: white;
+//   margin-bottom: -20px;
+//   font-size: 14px;
+// }
+
+// .productselector .thumbnail { /* KH 20180209: setting consistent height of boxes only in DVP home  */
+//   min-height: 300px;
+// }
+
+// .banner.gettingstarted {
+
+//   background-color: #004b87;
+//   width: 173.15%;
+//   padding: 50px;
+//   margin: -50px -400px 20px -407px !important;
+//   color: white;
+
+// }
+
+// .sagebutton.sageaccessiblegreen {
+
+//   margin: 30px 0 10px 350px !important;
+// }
+
+// .sagebuttonlink {
+
+//   font-size: 1.5em;
+//   color: white;
+//   font-weight: bold;
+//   padding: 10px;
+//   background-color: #41A940;
+
+// }
+
+// .sagename {
+
+//   font-size: 2em;
+//   color: white;
+//   font-weight: bold;
+//   margin-left: 350px;
+
+// }
+
+// .clipboard {
+//   border: 1px solid #dcdcdc;
+//   padding: 20px;
+//   width: 700px;
+//   margin-bottom: 20px;
+
+//   .labeltext {
+//     width: 150px;
+//     text-align: left;
+//   }
+// }
+
+// .pagination-nav {
+//   padding-left: 15px;
+//   padding-right: 15px;
+// }
+// /* MG Start - Uploaded font styles for product headings */
+//   @font-face {
+//     font-family: 'AdelleSansSageBold';
+    
+//     src: url("../fonts/bootstrap/adellesanssage-bold-webfont.eot");
+//     src: url("../fonts/bootstrap/adellesanssage-bold-webfont-webfont?#iefix") format("embedded-opentype"), 
+//     url("../fonts/bootstrap/adellesanssage-bold-webfont.woff2") format("woff2"), 
+//     url("../fonts/bootstrap/adellesanssage-bold-webfont.woff") format("woff"), 
+//     url("../fonts/bootstrap/adellesanssage-bold-webfont.ttf") format("truetype"), 
+//     url("../fonts/bootstrap/adellesanssage-bold-webfont.svg#svgFontName") format("svg");
+    
+//   }
+
+// h2.product-heading { 
+//   font-family:'AdelleSansSageBold';
+//   font-size: 24px;
+//   line-height: 30px;
+//   color:  #000000;
+//   opacity: 0.85;
+// }
+// /* MG Start - Uploaded font styles for product headings */
+// /* RY Start - Changing footer logo width */
+// footer .logo {
+//   width: 60px;	
+// }
+// /* RY Stop */

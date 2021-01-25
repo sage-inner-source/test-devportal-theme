@@ -1,0 +1,14 @@
+<div class="col-sm-3 col-xs-12 hidden-print" role="complementary">
+    <div class="list-group">
+        {% assign url = page.url|remove:'index.html' %}
+        {% assign base = site.data.sidebars[page.sidebar].base %}
+        {% assign items = site.data.sidebars[page.sidebar].items %}
+
+        {% for item in items %}
+            {% assign link = item.url | prepend:base %}
+            <a href="{{ link | prepend:site.baseurl }}" class="list-group-item {% if link == url %}active{% endif %}">
+                {{ item.title }}
+            </a>
+        {% endfor %}
+    </div>
+</div>

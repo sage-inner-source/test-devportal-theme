@@ -1,0 +1,193 @@
+<ul class="nav navbar-nav navbar-left">
+    <li class="nav-item dropdown">
+        <a href="#" id="navlinkApi" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">APIs <span class="caret"></span></a>
+        <div class="dropdown-menu" role="menu" {% unless site.data.ui-text.navbar.search_url and site.data.ui-text.navbar.search_url != 'NONE' %}style="--offset:{% if site.internal %}-230px{% else%}0px{% endif %}"{% endunless %}>
+
+            {% if site.environment == "qa" %}
+                {% assign base = "https://qa-developer-portal-home.sageaccountantscloud.com" %}
+            {% else %}
+                {% assign base = "https://developer.sage.com" %}
+            {% endif %}
+
+            {% if site.internal %}
+                {% assign base = base | append: "/internal" %}
+            {% endif %}
+
+            <ul class="dropdown-menu">
+                <li class="dropdown-title">Small Business</li>
+                <li>
+                    <a href="{{ base }}/api/accounting">Accounting</a>
+                </li>
+                <li>
+                    <a href="{{ base }}/api/payroll">Payroll</a>
+                </li>
+                {% comment %}
+                <li>
+                    <a>50cloud Accounts <br/><span class="badge">Coming soon</span></a>
+                </li>
+                <li>
+                    <a>50cloud Payroll <br/><span class="badge">Coming soon</span></a>
+                </li>
+                {% endcomment %}
+            </ul>
+
+            <ul class="dropdown-menu">
+                <li class="dropdown-title">Medium Business</li>
+                <li>
+                    <a href="{{ base }}/api/people">People</a>
+                </li>
+                <li>
+                    <a href="https://developer.intacct.com">Intacct</a>
+                </li>
+                <li>
+                    <a href="{{ base }}/api/x3">X3</a>
+                </li>
+                <li>
+                    <a>100cloud <br/><span class="badge">Coming soon</span></a>
+                </li>
+                <li>
+                    <a>200cloud <br/><span class="badge">Coming soon</span></a>
+                </li>
+                {% comment %}
+                <li>
+                    <a>300cloud <br/><span class="badge">Coming soon</span></a>
+                </li>
+                {% endcomment %}
+            </ul>
+
+            {% if site.internal %}
+
+                <ul class="dropdown-menu">
+                    <li class="dropdown-title">SF Domain</li>
+                    <li>
+                        <a href="{{ base }}/api/paymentsout">Payments Out Service</a>
+                    </li>
+                    <li>
+                        <a href="{{ base }}/api/compliance">Compliance Service</a>
+                    </li>
+                    <li>
+                        <a href="{{ base }}/api/einvoicing">Document Exchange Service</a>
+                    </li>
+                    <li>
+                        <a href="{{ base }}/api/banking-cloud">Banking Service</a>
+                    </li>
+                    <li>
+                        <a>Payments Acceptance Service <br/><span class="badge">Coming soon</span></a>
+                    </li>
+                </ul>
+
+                <ul class="dropdown-menu">
+                    <li class="dropdown-title">SF Core</li>
+                    <li>
+                        <a href="{{ base }}/api/infrastructure">Identity</a>
+                    </li>
+                    <li>
+                        <a href="{{ base }}/api/entitle_provision">Entitlement and Provisioning</a>
+                    </li>
+                    <li>
+                        <a href="{{ base }}/api/build_enable">Builders and Enablement</a>
+                    </li>
+                    <li>
+                        <a href="{{ base }}/api/isv_collab">ISV and Collaboration</a>
+                    </li>
+                </ul>
+
+                <ul class="dropdown-menu">
+                    <li class="dropdown-title">Other</li>
+                    <li>
+                        <a href="https://designsystem.sage.com">Design System</a>
+                    </li>
+                    <li>
+                        <a href="{{ base }}/payments.html">Payment Services</a>
+                    </li>
+                    {% comment %}
+                    <li>
+                        <a>Reporting Services <br/><span class="badge">Coming soon</span></a>
+                    </li>
+                    {% endcomment %}
+                </ul>
+
+            {% else %}
+
+                <ul class="dropdown-menu">
+                    <li class="dropdown-title">Provider</li>
+                    <li>
+                        <a href="{{ base }}/api/provider">Banking Service</a>
+                    </li>
+                    <li>
+                        <a>Payments Out Service <br/><span class="badge">Coming soon</span></a>
+                    </li>
+                    <li>
+                        <a>Payments Acceptance Service <br/><span class="badge">Coming soon</span></a>
+                    </li>
+                </ul>
+
+                <ul class="dropdown-menu">
+                    <li class="dropdown-title">Partner</li>
+                    <li>
+                        <a href="{{ base }}/canonical.html">Canonical</a>
+                    </li>
+                    <li class="dropdown-title">Other</li>
+                    <li>
+                        <a href="{{ base }}/payments.html">Payment Services</a>
+                    </li>
+                </ul>
+
+            {% endif %}
+
+        </div>
+    </li>
+    <li class="nav-item">
+        {% if site.internal %}
+            <a class="nav-link" href="https://internal-developer.sage.com" id="navlinkDevCom">Community</a>
+        {% else %}
+            {% if site.environment == "qa" %}
+                <a class="nav-link" href="https://qa.telligent.nexus.local/developer" id="navlinkDevCom">Community</a>
+            {% else %}
+                <a class="nav-link" href="https://www.sagecity.com/developer" id="navlinkDevCom">Community</a>
+            {% endif %}
+        {% endif %}
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://medium.com/sagefuturemakers" id="navlinkDevBlog">Blog</a>
+    </li>
+    {% if site.display_app_registry %}
+        <li class="nav-item">
+            {% if site.environment == "qa" %}
+                <a class="nav-link" href="https://qa-developer-portal-home.sageaccountantscloud.com/apps-info/" id="navlinkMyApps">My Apps</a>
+            {% else %}
+                <a class="nav-link" href="https://developer.sage.com/apps-info" id="navlinkMyApps">My Apps</a>
+            {% endif %}
+        </li>
+    {% endif %}
+    <li class="nav-item">
+        <a class="nav-link" href="https://trust.sage.com" id="navlinkApiStatus">Status</a>
+    </li>
+    {% unless site.internal %}
+        <li class="nav-item">
+            <a class="nav-link" href="https://developerportal.ideas.aha.io/" id="navlinkAhaIdeas" referrerpolicy="unsafe-url">Submit an Idea</a>
+        </li>
+    {% endunless %}
+</ul>
+
+{% if site.data.ui-text.navbar.search_url and site.data.ui-text.navbar.search_url != "NONE" %}
+    <form class="navbar-form navbar-left" role="search" action="{{ site.data.ui-text.navbar.search_url }}" target="_blank" method="get">
+        <div class="input-group">
+            <div class="form-group">
+                <input name="q" type="text" class="form-control" placeholder="{{ site.data.ui-text.navbar.search_input_placeholder | default: 'Search' }}">
+                <input name="sitesearch" type="hidden" value="{{ '' | append: site.url | remove_first: 'https://' | remove_first: 'http://' }}">
+            </div>
+            <button type="submit" class="btn btn-default" aria-label="{{ site.data.ui-text.navbar.search_button_label | default: 'Search' }}">
+                <span class="glyphicon glyphicon-search"><span class="sr-only">{{ site.data.ui-text.navbar.search_button_label | default: 'Search' }}</span></span>
+            </button>
+        </div>
+    </form>
+{% endif %}
+
+{% if page.display_user_profile %}
+    <ul class="nav navbar-nav navbar-left">
+        <li class="nav-item dropdown">
+            <div id="devx-navProfile"></div>
+        </li>
+    </ul>
+{% endif %}

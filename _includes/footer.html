@@ -1,0 +1,19 @@
+	<footer class="footer" id="footerDevPortal">
+		<div class="row">
+			<div class="col-md-2">
+				<img src="{{ site.logo}}" class="logo" alt="Sage logo">
+			</div>
+			<div class="col-md-10">
+					{{ site.data.ui-text.footer.copyright.text }} {{ 'now' | date: "%Y" }}
+					<a href="{{ site.data.ui-text.footer.copyright.url }}" target="_blank">{{ site.data.ui-text.footer.copyright.entity }}</a><br>
+					<small>{{ site.data.ui-text.footer.content_license.prefix }}
+						<a href="{{ site.data.ui-text.footer.content_license.url }}" target="_blank">{{ site.data.ui-text.footer.content_license.name }}</a>.
+						{{ site.data.ui-text.footer.code_license.prefix }}
+						<a href="{{ site.data.ui-text.footer.code_license.url }}" target="_blank">{{ site.data.ui-text.footer.code_license.name }}</a>.
+						The use of Sage’s API is covered under Sage
+						<a href="https://developer.sage.com/legal.html">Developer Terms and Conditions</a>
+					</small>
+			</div>
+		</div>
+	</footer>
+

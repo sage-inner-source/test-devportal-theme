@@ -1,0 +1,7 @@
+internal: true
+environment: prod
+logo: /assets/images/sage-logo.png
+# data:
+#   ui-text:
+#     navbar:
+#         search_url: "https://google.com"

@@ -1,0 +1,22 @@
+{% assign url = page.url|remove:'index.html' %}
+{% assign base = site.data.sidebars[page.sidebar].base %}
+{% assign items = site.data.sidebars[page.sidebar].items %}
+
+{% for item in items %}
+  {% assign link = item.url | prepend:base %}
+  {% if link == url %}
+    <div class="row pagination-nav">
+      {% if forloop.index > 1 %}
+        {% assign last_key = forloop.index0 | minus: 1 %}
+        {% assign last_url = items[last_key].url | prepend:base %}
+        <a href="{{ last_url | prepend: site.baseurl }}" title="&lt;&nbsp;&nbsp;GO BACK" class="btn btn-primary btn-sm pull-left">&lt;&nbsp;&nbsp;GO BACK</a>
+      {% endif %}
+
+      {% if forloop.rindex > 1 %}
+        {% assign next_key = forloop.index0 | plus: 1 %}
+        {% assign next_url = items[next_key].url | prepend:base %}
+        <a href="{{ next_url | prepend: site.baseurl }}" title="NEXT STEP&nbsp;&nbsp;&gt;" class="btn btn-sm btn-default pull-right">NEXT STEP&nbsp;&nbsp;&gt;</a>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endfor %}

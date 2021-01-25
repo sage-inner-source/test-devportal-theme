@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+    {% include head.html %}
+
+    <body id="mainBody">
+
+    {% include navbar.html %}
+
+    <div class="container documentation">
+
+        {% if site.data.sidebars[page.sidebar].items.size < 2 or page.hide_sidebar == true %}
+
+            <div class="col-sm-12" role="main">
+                {% include breadcrumb.html %}
+
+                {% include pageheader.html %}
+
+                {{ content }}
+
+                
+
+            </div>
+
+        {% else %}
+
+            <div class="col-sm-9 col-xs-12" role="main">
+                {% include breadcrumb.html %}
+				{% if page.sidebar_heading %}
+					<h1 class="center">{{ page.sidebar_heading }}</h1>
+				{% endif %}
+					
+                {% include pageheader.html %}
+
+                {{ content }}
+
+                
+
+            </div>
+
+            {% include sidebar.html %}
+
+        
+        {% endif %}
+
+    </div>
+
+    {% include footer.html %}
+
+    {% include scripts.html %}
+
+    </body>
+
+</html>
